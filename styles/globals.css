@@ -54,7 +54,7 @@ em {
 .navbar {
   transition: all 0.5s ease-in !important;
   color: #555 !important;
-  background: var(---div-title-bg);
+  background: var(---div-title-bg) !important;
 }
 
 .developer {
