@@ -236,7 +236,7 @@ export default function Home() {
           {/* <Button variant="contained">View Projects Created</Button> */}
         </Grid>
 
-        <Grid item xs={12} className="card designer">
+        {/* <Grid item xs={12} className="card designer">
           <Box>
             <Box
               display={"flex"}
@@ -424,26 +424,36 @@ export default function Home() {
               </Grid>
             </Grid>
           </Box>
-        </Grid>
+        </Grid> */}
       </Grid>
 
       {/* Projects */}
       <Grid id="projects" container spacing={1} mt={{ xs: 0, md: 3 }}>
-        <Grid item container xs={12} md={7} className="card">
+        <Grid item container xs={12} md={12} className="card">
           <Typography variant="h5" textAlign={"center"}>
-            Programs I Made
+            Some projects I've built
           </Typography>
+
           <Grid
             container
             id="media-scroller"
             className="card media-scroller snap-inline"
           >
             <CardMediaProgram
+              ImageSrc={"/rsbc-marketing.PNG"}
+              title={"RSBC Marketing"}
+              altImage={"rsbc marketing"}
+              description={"Company website that help find more leads"}
+              link={"https://rsbc-marketing.vercel.app/"}
+              techUsedArray={["Next JS", "Material UI", "Vercel"]}
+            />
+            <CardMediaProgram
               ImageSrc={"/Erha.png"}
               altImage={"Research Paper Sample"}
               title={"Research Paper"}
               description={"Student projects that I build"}
               link={"https://erha-3686e.web.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase hosting"]}
             />
 
             <CardMediaProgram
@@ -452,6 +462,7 @@ export default function Home() {
               title={"Sales Agent Application"}
               description={"Agent App that can monitor their possible clients"}
               link={"https://noems-agent-dummy.web.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase hosting"]}
             />
 
             <CardMediaProgram
@@ -460,11 +471,12 @@ export default function Home() {
               altImage={"chords finder app"}
               description={"Agent App that can monitor their possible clients"}
               link={"https://music-ministry-chord-finder.web.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase hosting"]}
             />
           </Grid>
         </Grid>
 
-        <Grid item container xs={12} md={5} className="card">
+        {/* <Grid item container xs={12} md={5} className="card">
           <Grid item xs={12}>
             <Box>
               <Typography variant="h5" textAlign={"center"}>
@@ -474,7 +486,7 @@ export default function Home() {
               <Slider autoSlide={true} />
             </Box>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Grid>
 
       {/* Services */}
@@ -499,72 +511,39 @@ export default function Home() {
                 <Typography>
                   (Personal Portfolio, Landing Page, Company Site)
                 </Typography>
-                <Typography variant="h5"> - $15</Typography>
+                <Typography variant="h5"> - $30 / ₱1700</Typography>
               </Paper>
             </Grid>
 
             <Grid item xs={12} md={4}>
-              <Paper sx={{ background: "var(---div-title-bg)", p: 1 }}>
-                <Typography variant="h6" mb={1}>
-                  Website Applications - With Local Database
-                </Typography>
-                <Typography>
-                  (Business App, Customer Listing, Payroll System)
-                </Typography>
-                <Typography variant="h5"> - $25</Typography>
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4}>
-              <Paper sx={{ background: "var(---div-title-bg)", p: 1 }}>
+              <Paper
+                sx={{
+                  background: "var(---div-title-bg)",
+                  p: 1,
+                  height: "100%",
+                }}
+              >
                 <Typography variant="h6" mb={1}>
                   Website Applications - Cloud Hosting and Database -
                 </Typography>
 
                 <Typography>
-                  (Personal Portfolio, Landing Page, Company Site)
+                  (Company / Personal web application that can help your
+                  business manage or make leads)
                 </Typography>
-                <Typography variant="h5"> - $30</Typography>
-              </Paper>
-            </Grid>
-          </Grid>
-
-          {/* Layout Services */}
-          <Typography>Layout</Typography>
-          <Grid container spacing={1} mt={2}>
-            <Grid item xs={12} md={4}>
-              <Paper sx={{ background: "var(---div-title-bg)", p: 1 }}>
-                <Typography variant="h6" mb={1}>
-                  LOGO
-                </Typography>
-                <Typography>(Personal or Company Logo)</Typography>
-                <Typography variant="h5"> - $5</Typography>
+                <Typography variant="h5"> - $50</Typography>
               </Paper>
             </Grid>
 
             <Grid item xs={12} md={4}>
               <Paper sx={{ background: "var(---div-title-bg)", p: 1 }}>
                 <Typography variant="h6" mb={1}>
-                  Photo Enhancements
-                </Typography>
-
-                <Typography>
-                  (Background Remove, Light Enhancements, Image Quality)
-                </Typography>
-                <Typography variant="h5"> - $6</Typography>
-              </Paper>
-            </Grid>
-
-            <Grid item xs={12} md={4}>
-              <Paper sx={{ background: "var(---div-title-bg)", p: 1 }}>
-                <Typography variant="h6" mb={1}>
-                  Marketing Layouts
+                  Desktop Applications - With Local Database
                 </Typography>
                 <Typography>
-                  (Tarpaulines, Menu Board, Social Media Content) - Depend vary
-                  complexity
+                  (Business App, Customer Listing, Payroll System)
                 </Typography>
-                <Typography variant="h5"> - $7 - 10</Typography>
+                <Typography variant="h5"> - $50</Typography>
               </Paper>
             </Grid>
           </Grid>

@@ -10,6 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 
+import EmailForm from "./EmailForm";
+
 const Contact = () => {
   const formRef = useRef();
 
@@ -40,6 +42,7 @@ const Contact = () => {
         }
       );
   };
+
   return (
     <Box
       sx={{
@@ -92,6 +95,8 @@ const Contact = () => {
           </Grid>
         </Grid>
       </form>
+
+      <EmailForm />
 
       <Snackbar open={sending} autoHideDuration={6000} message="Message sent!">
         <Alert severity="success">Message sent completed. Thanks!</Alert>
