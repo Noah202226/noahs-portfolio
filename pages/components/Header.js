@@ -14,10 +14,11 @@ import Container from "@mui/material/Container";
 import MenuItem from "@mui/material/MenuItem";
 
 import { Facebook, HomeMax, MilitaryTech, YouTube } from "@mui/icons-material";
+import Image from "next/image";
 
 const pages = [
   { name: "Services", path: "/services", id: 1, target: "services" },
-  { name: "Pricing", path: "/pricing", id: 2, target: "pricing" },
+  // { name: "Pricing", path: "/pricing", id: 2, target: "pricing" },
   { name: "Projects", path: "/services", id: 3, target: "projects" },
   { name: "Contact", path: "/contact", id: 4, target: "contact" },
   // { name: "Blog", path: "/blog", id: 5, target: "contact" },
@@ -72,7 +73,7 @@ export default function Header() {
                 textDecoration: "none",
               }}
             >
-              <MilitaryTech sx={{ color: "#555" }} />
+              <Image src={"/nl.png"} alt="NL logo" width={26} height={26} />
             </Typography>
           </Link>
 
@@ -135,7 +136,7 @@ export default function Header() {
                 textDecoration: "none",
               }}
             >
-              <MilitaryTech sx={{ color: "#555" }} />
+              <Image src={"/nl.png"} alt="NL logo" width={26} height={26} />
             </Typography>
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -168,7 +169,7 @@ export default function Header() {
               href="https://www.facebook.com/noaligpitan26"
               target="_blank"
             >
-              <Facebook />
+              <Facebook color="red" />
             </IconButton>
             <IconButton
               href="https://www.youtube.com/channel/UCY7RgjrnESF5AxgjF2PLyRw"

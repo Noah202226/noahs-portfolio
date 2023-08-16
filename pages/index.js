@@ -48,7 +48,7 @@ export default function Home() {
         alignItems={"center"}
         justifyContent={"center"}
         sx={{
-          height: { xs: "40vh", lg: "100vh" },
+          height: { xs: "18vh", lg: "90vh" },
         }}
       >
         <Typography
@@ -67,7 +67,8 @@ export default function Home() {
           fontSize={{ xs: 18, md: 28, lg: 42 }}
           letterSpacing={2}
         >
-          Hi there, Let's <em>Develop</em> and <em>Designs</em> your products.
+          Hi there, Let's <em style={{ color: "white" }}>Designs</em> and{" "}
+          <em>Develop</em> your products.
         </Typography>
 
         <Typography
@@ -80,7 +81,8 @@ export default function Home() {
           borderRadius={5}
           marginY={{ xs: 2, md: 2 }}
         >
-          Aims to help startup to build application for their business
+          Aims to help startup to <em> build application</em> to manage their
+          business
         </Typography>
       </Stack>
 
@@ -118,7 +120,7 @@ export default function Home() {
               <Typography
                 variant="h5"
                 fontSize={{ xs: 24, md: 36, lg: 46 }}
-                sx={{ textShadow: "2px 2px 2px grey" }}
+                sx={{ textShadow: "2px 2px 2px grey", fontFamily: "Gemstone" }}
               >
                 Software Developer
               </Typography>
@@ -135,6 +137,7 @@ export default function Home() {
                     letterSpacing: 5,
                     color: "var(---div-title-bg)",
                     textShadow: "2px 2px 2px black",
+                    fontFamily: "Gemstone",
                   }}
                 >
                   Web Development
@@ -195,6 +198,7 @@ export default function Home() {
                     letterSpacing: 5,
                     color: "var(---div-title-bg)",
                     textShadow: "2px 2px 2px black",
+                    fontFamily: "Gemstone",
                   }}
                   fontSize={36}
                 >
@@ -430,7 +434,11 @@ export default function Home() {
       {/* Projects */}
       <Grid id="projects" container spacing={1} mt={{ xs: 0, md: 3 }}>
         <Grid item container xs={12} md={12} className="card">
-          <Typography variant="h5" textAlign={"center"}>
+          <Typography
+            variant="h5"
+            textAlign={"center"}
+            sx={{ fontFamily: "Gemstone" }}
+          >
             Some projects I've built
           </Typography>
 
@@ -445,15 +453,15 @@ export default function Home() {
               altImage={"rsbc marketing"}
               description={"Company website that help find more leads"}
               link={"https://rsbc-marketing.vercel.app/"}
-              techUsedArray={["Next JS", "Material UI", "Vercel"]}
+              techUsedArray={["Next JS", "Material UI", "Firebase", "Vercel"]}
             />
             <CardMediaProgram
               ImageSrc={"/Erha.png"}
               altImage={"Research Paper Sample"}
               title={"Research Paper"}
-              description={"Student projects that I build"}
+              description={"Student projects/research that I built"}
               link={"https://erha-3686e.web.app/"}
-              techUsedArray={["Next JS", "Material UI", "Firebase hosting"]}
+              techUsedArray={["Next JS", "Material UI", "Firebase"]}
             />
 
             <CardMediaProgram
@@ -462,16 +470,16 @@ export default function Home() {
               title={"Sales Agent Application"}
               description={"Agent App that can monitor their possible clients"}
               link={"https://noems-agent-dummy.web.app/"}
-              techUsedArray={["Next JS", "Material UI", "Firebase hosting"]}
+              techUsedArray={["Next JS", "Material UI", "Firebase"]}
             />
 
             <CardMediaProgram
               ImageSrc={"/chords-finder-app.PNG"}
               title={"Chords Finder App"}
               altImage={"chords finder app"}
-              description={"Agent App that can monitor their possible clients"}
+              description={"Image chords organizer, to easy find chords"}
               link={"https://music-ministry-chord-finder.web.app/"}
-              techUsedArray={["Next JS", "Material UI", "Firebase hosting"]}
+              techUsedArray={["Next JS", "Material UI", "Firebase"]}
             />
           </Grid>
         </Grid>
@@ -495,13 +503,13 @@ export default function Home() {
           <Typography
             variant="h5"
             fontSize={46}
-            sx={{ fontFamily: "Caveat Brush" }}
+            sx={{ fontFamily: "Gemstone" }}
           >
             Services
           </Typography>
 
-          {/* Developer Services */}
-          <Typography>Software</Typography>
+          {/* Developer Services
+          <Typography>Software</Typography> */}
           <Grid container spacing={1}>
             <Grid item xs={12} md={4}>
               <Paper sx={{ background: "var(---div-title-bg)", p: 1 }}>

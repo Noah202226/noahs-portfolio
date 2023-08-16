@@ -30,12 +30,35 @@ export default function CardMediaProgram({
         />
       </Box>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {description}
-        </Typography>
+        <Stack
+          flexDirection={"row"}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
+          <Stack>
+            <Typography gutterBottom variant="h5" component="div">
+              {title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {description}
+            </Typography>
+          </Stack>
+
+          <Stack
+            flexDirection={"row"}
+            alignItems={"flex-end"}
+            justifyContent={"flex-end"}
+            height={"100%"}
+            bgcolor={"var(---div-title-bg)"}
+          >
+            <Button variant="filed" size="small" target="_blank" href={link}>
+              View
+            </Button>
+            {/* <Button variant="filed" size="small" color="warning">
+              Code
+            </Button> */}
+          </Stack>
+        </Stack>
       </CardContent>
       <CardActions>
         <Grid container mx={2}>
@@ -50,22 +73,8 @@ export default function CardMediaProgram({
               justifyContent={"space-between"}
             >
               {techUsedArray?.map((tech) => (
-                <Typography>{tech}</Typography>
+                <Typography key={tech}>{tech}</Typography>
               ))}
-            </Stack>
-          </Grid>
-
-          <Grid item xs={12} md={4}>
-            <Stack
-              flexDirection={"row"}
-              alignItems={"flex-end"}
-              justifyContent={"flex-end"}
-              height={"100%"}
-            >
-              <Button variant="filed" size="small" target="_blank" href={link}>
-                View
-              </Button>
-              <Button size="small">Code</Button>
             </Stack>
           </Grid>
         </Grid>

@@ -10,37 +10,39 @@ import {
   Typography,
 } from "@mui/material";
 
-import EmailForm from "./EmailForm";
-
 const Contact = () => {
   const formRef = useRef();
 
-  const [sending, setIsSending] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
-  const sendEmail = (e) => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_fm0ot7q",
-        "template_krr6vzm",
-        formRef.current,
-        "4oaLvmxZtMd0y5oSI"
-      )
-      .then(
-        (result) => {
-          formRef.current.reset();
-
-          setIsSending(true);
-
-          setTimeout(() => {
-            setIsSending(false);
-          }, 3000);
+    setIsSending(true);
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        (error) => {
-          alert(error.text);
-        }
-      );
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+      if (data) {
+        setIsSending(false);
+
+        setName("");
+        setEmail("");
+        setMessage("");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
   };
 
   return (
@@ -53,9 +55,11 @@ const Contact = () => {
         padding: "1rem",
       }}
     >
-      <Typography variant="h6">Send me a message:</Typography>
+      <Typography variant="h6" sx={{ fontFamily: "Gemstone" }}>
+        Send me a message:
+      </Typography>
 
-      <form ref={formRef} onSubmit={sendEmail}>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <Grid container spacing={2}>
           <Grid item container md={12} spacing={3}>
             <Grid item xs={12} md={5}>
@@ -63,6 +67,8 @@ const Contact = () => {
                 label="Your name"
                 name="user_name"
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 fullWidth
               />
             </Grid>
@@ -71,13 +77,22 @@ const Contact = () => {
                 label="Email"
                 name="user_name"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 fullWidth
               />
             </Grid>
           </Grid>
 
           <Grid item xs={12} md={12}>
-            <TextField label="Message" multiline name="message" fullWidth />
+            <TextField
+              label="Message"
+              multiline
+              name="message"
+              fullWidth
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
           </Grid>
 
           <Grid item xs={12} md={12}>
@@ -88,17 +103,20 @@ const Contact = () => {
               sx={{
                 padding: 1,
                 width: { xs: "100%", md: "200px" },
+                fontFamily: "Gemstone",
               }}
             >
-              Submit
+              {isSending ? "Sending ..." : "Submit"}
             </Button>
           </Grid>
         </Grid>
       </form>
 
-      <EmailForm />
-
-      <Snackbar open={sending} autoHideDuration={6000} message="Message sent!">
+      <Snackbar
+        open={isSending}
+        autoHideDuration={6000}
+        message="Message sent!"
+      >
         <Alert severity="success">Message sent completed. Thanks!</Alert>
       </Snackbar>
     </Box>

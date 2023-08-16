@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
   return (
     <Layout>
       <Head>
-        <link rel="icon" href="/anger-sprint.png" />
+        <link rel="icon" href="/nl.png" />
       </Head>
       <Component {...pageProps} />
     </Layout>
