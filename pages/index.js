@@ -48,7 +48,7 @@ export default function Home() {
         alignItems={"center"}
         justifyContent={"center"}
         sx={{
-          height: { xs: "18vh", lg: "90vh" },
+          height: { xs: "50vh", lg: "90vh" },
         }}
       >
         <Typography
@@ -61,14 +61,34 @@ export default function Home() {
         >
           NOA LIGPITAN
         </Typography>
+
+        <Typography
+          variant="h3"
+          textAlign={{ xs: "center", md: "start" }}
+          fontSize={{ xs: 18, md: 46, lg: 18 }}
+          letterSpacing={5}
+          sx={{
+            transition: ".5s ease",
+            fontStyle: "italic",
+            color: "black",
+            letterSpacing: ".5rem",
+          }}
+        >
+          Freelance Developer
+        </Typography>
+
         <Typography
           variant="h6"
           textAlign={{ xs: "center", md: "start" }}
           fontSize={{ xs: 18, md: 28, lg: 42 }}
           letterSpacing={2}
+          mt={{ xs: 6, md: 28, lg: 12 }}
         >
-          Hi there, Let's <em style={{ color: "white" }}>Designs</em> and{" "}
-          <em>Develop</em> your products.
+          Hi there, Let's{" "}
+          <em className="font-highlighted" style={{ color: "white" }}>
+            Designs
+          </em>{" "}
+          and <em className="font-highlighted">Develop</em> your products.
         </Typography>
 
         <Typography
@@ -81,10 +101,93 @@ export default function Home() {
           borderRadius={5}
           marginY={{ xs: 2, md: 2 }}
         >
-          Aims to help startup to <em> build application</em> to manage their
-          business
+          Aims to help startup to{" "}
+          <em className="font-highlighted"> build application</em> to manage
+          their business
         </Typography>
       </Stack>
+
+      {/* Projects */}
+      <Grid id="projects" container spacing={1} my={{ xs: 0, md: 3 }}>
+        <Box
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+          sx={{ width: "100%" }}
+        >
+          <Typography
+            variant="h4"
+            textAlign={{ xs: "center", md: "left" }}
+            sx={{ fontFamily: "Gemstone", width: "100%" }}
+          >
+            Some projects I've built
+          </Typography>
+
+          <Typography
+            className="to-hide-in-mobile"
+            variant="caption"
+            color={"coral"}
+            fontStyle={"italic"}
+          >
+            Use shift + mouse scroll to view other projects
+          </Typography>
+        </Box>
+        <Grid item container xs={12} md={12} className="card">
+          <Grid
+            container
+            id="media-scroller"
+            className="card media-scroller snap-inline"
+          >
+            <CardMediaProgram
+              ImageSrc={"/rsbc-marketing.PNG"}
+              title={"RSBC Marketing"}
+              altImage={"rsbc marketing"}
+              description={"Company website that help find more leads"}
+              link={"https://rsbc-marketing.vercel.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase", "Vercel"]}
+            />
+
+            <CardMediaProgram
+              ImageSrc={"/chords-finder-app.PNG"}
+              title={"Chords Finder App"}
+              altImage={"chords finder app"}
+              description={"Image chords organizer, to easy find chords"}
+              link={"https://music-ministry-chord-finder.web.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase"]}
+            />
+
+            <CardMediaProgram
+              ImageSrc={"/sales-agent-app.PNG"}
+              altImage={"Sales Agent App"}
+              title={"Sales Agent Application"}
+              description={"Agent App that can monitor their possible clients"}
+              link={"https://noems-agent-dummy.web.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase"]}
+            />
+
+            <CardMediaProgram
+              ImageSrc={"/Erha.png"}
+              altImage={"Research Paper Sample"}
+              title={"Research Paper"}
+              description={"Student projects/research that I built"}
+              link={"https://erha-3686e.web.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase"]}
+            />
+          </Grid>
+        </Grid>
+
+        {/* <Grid item container xs={12} md={5} className="card">
+          <Grid item xs={12}>
+            <Box>
+              <Typography variant="h5" textAlign={"center"}>
+                Sample Layouts I Make
+              </Typography>
+
+              <Slider autoSlide={true} />
+            </Box>
+          </Grid>
+        </Grid> */}
+      </Grid>
 
       {/* Info */}
       <Grid container spacing={2} gap={2}>
@@ -102,9 +205,14 @@ export default function Home() {
           }}
           className="card developer"
           padding={2}
+          my={{ xs: 10, md: 14 }}
         >
+          <Typography variant="h4" sx={{ fontFamily: "Gemstone" }}>
+            Technologies I'm using
+          </Typography>
+
           <Box marginBottom={2} display={"flex"} flexDirection={"column"}>
-            <Box
+            {/* <Box
               display={"flex"}
               flexDirection={"row"}
               alignItems={"center"}
@@ -122,10 +230,9 @@ export default function Home() {
                 fontSize={{ xs: 24, md: 36, lg: 46 }}
                 sx={{ textShadow: "2px 2px 2px grey", fontFamily: "Gemstone" }}
               >
-                Software Developer
+                Technologies I'm using
               </Typography>
-              <Code />
-            </Box>
+            </Box> */}
 
             <ul>
               <li>
@@ -239,262 +346,6 @@ export default function Home() {
 
           {/* <Button variant="contained">View Projects Created</Button> */}
         </Grid>
-
-        {/* <Grid item xs={12} className="card designer">
-          <Box>
-            <Box
-              display={"flex"}
-              flexDirection={"row"}
-              alignItems={"center"}
-              justifyContent={"center"}
-              sx={{
-                background: "var(---div-title-bg)",
-                padding: 1,
-                borderRadius: "1rem",
-                opacity: 0.8,
-                width: "60%",
-              }}
-            >
-              <Typography
-                variant="h5"
-                fontSize={{ xs: 24, md: 36, lg: 46 }}
-                sx={{ textShadow: "2px 2px 2px grey" }}
-              >
-                Graphic Design
-              </Typography>
-              <DesignServices />
-            </Box>
-
-            <Grid
-              container
-              display={"flex"}
-              alignItems={"center"}
-              justifyContent={"space-evenly"}
-            >
-              <Image src={"/photoshop.svg"} height={50} width={50} />
-              <Image src={"/illustrator.svg"} height={50} width={50} />
-            </Grid>
-
-            <Grid
-              flexDirection={"row"}
-              justifyContent={"space-evenly"}
-              container
-            >
-              <Grid item xs={12} md={4}>
-                <Card
-                  sx={{
-                    m: 1,
-                    p: 2,
-                    background: "var(---div-title-bg)",
-                    opacity: 0.9,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    height: "100px",
-                  }}
-                >
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      textShadow: "1px 1px 1px grey",
-                      letterSpacing: 4,
-                    }}
-                  >
-                    LOGO
-                  </Typography>
-
-                  <Stack
-                    flexDirection={"row"}
-                    justifyContent={"space-evenly"}
-                    alignItems={"center"}
-                    flex={1}
-                    width={"100%"}
-                  >
-                    <Image src={"/icons8-logo.svg"} width={50} height={50} />
-                    <Image src={"/icons8-logo 2.svg"} width={50} height={50} />
-                    <Image src={"/icons8-logo 3.svg"} width={50} height={50} />
-                  </Stack>
-                </Card>
-              </Grid>
-
-              <Grid item xs={12} md={4}>
-                <Card
-                  sx={{
-                    m: 1,
-                    p: 1,
-                    background: "var(---div-title-bg)",
-                    opacity: 0.9,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    height: "100px",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      textShadow: "1px 1px 1px grey",
-                      letterSpacing: 4,
-                    }}
-                  >
-                    MARKETING LAYOUTS
-                  </Typography>
-
-                  <Grid container>
-                    <Grid item xs={4} md={4}>
-                      <Typography
-                        variant="h6"
-                        textAlign={"center"}
-                        color="black"
-                      >
-                        Tarpaulines
-                      </Typography>
-                    </Grid>
-
-                    <Grid item xs={4} md={4}>
-                      <Typography variant="h6" textAlign={"center"}>
-                        Flyers
-                      </Typography>
-                    </Grid>
-
-                    <Grid item xs={4} md={4}>
-                      <Typography variant="h6" textAlign={"center"}>
-                        Product{" "}
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </Card>
-              </Grid>
-
-              <Grid item xs={12} md={4}>
-                <Card
-                  sx={{
-                    m: 1,
-                    p: 1,
-                    background: "var(---div-title-bg)",
-                    opacity: 0.9,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    height: "100px",
-                    justifyContent: "space-between",
-                    paddingBottom: 2,
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      textShadow: "1px 1px 1px grey",
-                      letterSpacing: 4,
-                    }}
-                  >
-                    PHOTO ENCHANCEMENTS
-                  </Typography>
-
-                  <Grid container>
-                    <Grid item xs={4} md={4}>
-                      <Typography
-                        variant="h6"
-                        textAlign={"center"}
-                        color="black"
-                        fontSize={11}
-                      >
-                        Remove Background
-                      </Typography>
-                    </Grid>
-
-                    <Grid item xs={4} md={4}>
-                      <Typography
-                        variant="h6"
-                        textAlign={"center"}
-                        fontSize={11}
-                      >
-                        Adjust Lightness
-                      </Typography>
-                    </Grid>
-
-                    <Grid item xs={4} md={4}>
-                      <Typography
-                        variant="h6"
-                        textAlign={"center"}
-                        fontSize={11}
-                      >
-                        Image Quality
-                      </Typography>
-                    </Grid>
-                  </Grid>
-                </Card>
-              </Grid>
-            </Grid>
-          </Box>
-        </Grid> */}
-      </Grid>
-
-      {/* Projects */}
-      <Grid id="projects" container spacing={1} mt={{ xs: 0, md: 3 }}>
-        <Grid item container xs={12} md={12} className="card">
-          <Typography
-            variant="h5"
-            textAlign={"center"}
-            sx={{ fontFamily: "Gemstone" }}
-          >
-            Some projects I've built
-          </Typography>
-
-          <Grid
-            container
-            id="media-scroller"
-            className="card media-scroller snap-inline"
-          >
-            <CardMediaProgram
-              ImageSrc={"/rsbc-marketing.PNG"}
-              title={"RSBC Marketing"}
-              altImage={"rsbc marketing"}
-              description={"Company website that help find more leads"}
-              link={"https://rsbc-marketing.vercel.app/"}
-              techUsedArray={["Next JS", "Material UI", "Firebase", "Vercel"]}
-            />
-            <CardMediaProgram
-              ImageSrc={"/Erha.png"}
-              altImage={"Research Paper Sample"}
-              title={"Research Paper"}
-              description={"Student projects/research that I built"}
-              link={"https://erha-3686e.web.app/"}
-              techUsedArray={["Next JS", "Material UI", "Firebase"]}
-            />
-
-            <CardMediaProgram
-              ImageSrc={"/sales-agent-app.PNG"}
-              altImage={"Sales Agent App"}
-              title={"Sales Agent Application"}
-              description={"Agent App that can monitor their possible clients"}
-              link={"https://noems-agent-dummy.web.app/"}
-              techUsedArray={["Next JS", "Material UI", "Firebase"]}
-            />
-
-            <CardMediaProgram
-              ImageSrc={"/chords-finder-app.PNG"}
-              title={"Chords Finder App"}
-              altImage={"chords finder app"}
-              description={"Image chords organizer, to easy find chords"}
-              link={"https://music-ministry-chord-finder.web.app/"}
-              techUsedArray={["Next JS", "Material UI", "Firebase"]}
-            />
-          </Grid>
-        </Grid>
-
-        {/* <Grid item container xs={12} md={5} className="card">
-          <Grid item xs={12}>
-            <Box>
-              <Typography variant="h5" textAlign={"center"}>
-                Sample Layouts I Make
-              </Typography>
-
-              <Slider autoSlide={true} />
-            </Box>
-          </Grid>
-        </Grid> */}
       </Grid>
 
       {/* Services */}

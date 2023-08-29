@@ -220,6 +220,9 @@ em {
   #media-scroller {
     grid-auto-columns: 95%;
   }
+  .to-hide-in-mobile {
+    display: none;
+  }
 }
 .snap-inline {
   scroll-snap-type: inline mandatory;
@@ -241,4 +244,13 @@ em {
 }
 #media-scroller::-webkit-scrollbar-thumb {
   background: #555;
+}
+
+.font-highlighted {
+  transition: all ease-in 2s;
+}
+.font-highlighted:hover {
+  top: -0.1rem !important;
+  position: relative !important;
+  text-decoration: none;
 }
