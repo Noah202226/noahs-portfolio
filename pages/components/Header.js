@@ -66,7 +66,7 @@ export default function Header() {
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
+                fontFamily: "Lato, sans-serif",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "inherit",
@@ -113,6 +113,7 @@ export default function Header() {
                       href={page.path}
                       to={page.target}
                       onClick={handleCloseNavMenu}
+                      style={{ fontFamily: "Lato, sans-serif" }}
                     >
                       {page.name}
                     </Link>
@@ -129,7 +130,7 @@ export default function Header() {
                 mr: 2,
                 display: { xs: "flex", md: "none" },
                 flexGrow: 1,
-                fontFamily: "monospace",
+                fontFamily: "Lato, sans-serif",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "inherit",
@@ -151,7 +152,7 @@ export default function Header() {
                   offset={-80}
                   duration={400}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white" }}
+                  sx={{ my: 2, color: "white", fontFamily: "Lato, sans-serif" }}
                 >
                   {page.name}
                 </Link>

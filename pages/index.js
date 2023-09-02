@@ -1,7 +1,18 @@
 import { useEffect } from "react";
 
-import { Box, Card, Grid, Paper, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  Grid,
+  Paper,
+  Stack,
+  Tooltip,
+  Typography,
+} from "@mui/material";
+import { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import { Code, DesignServices } from "@mui/icons-material";
+
+import { styled } from "@mui/material/styles";
 
 import CardMediaProgram from "./components/CardMediaProgram/CardMediaProgram";
 
@@ -37,6 +48,18 @@ export default function Home() {
     });
   }, []);
 
+  const HtmlTooltip = styled(({ className, ...props }) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: "#f5f5f9",
+      color: "rgba(0, 0, 0, 0.87)",
+      maxWidth: 300,
+      fontSize: theme.typography.pxToRem(12),
+      border: "1px solid #dadde9",
+    },
+  }));
+
   return (
     <Box className="card-container" marginBottom={3}>
       {/* Hero */}
@@ -54,7 +77,7 @@ export default function Home() {
         <Typography
           variant="h1"
           textAlign={{ xs: "center", md: "start" }}
-          fontSize={{ xs: 36, md: 46, lg: 96 }}
+          fontSize={{ xs: 66, md: 76, lg: 106 }}
           marginY={{ xs: 2, md: 2 }}
           letterSpacing={5}
           sx={{ transition: ".5s ease" }}
@@ -65,7 +88,7 @@ export default function Home() {
         <Typography
           variant="h3"
           textAlign={{ xs: "center", md: "start" }}
-          fontSize={{ xs: 18, md: 46, lg: 18 }}
+          fontSize={{ xs: 21, md: 24, lg: 26 }}
           letterSpacing={5}
           sx={{
             transition: ".5s ease",
@@ -80,7 +103,7 @@ export default function Home() {
         <Typography
           variant="h6"
           textAlign={{ xs: "center", md: "start" }}
-          fontSize={{ xs: 18, md: 28, lg: 42 }}
+          fontSize={{ xs: 21, md: 28, lg: 30 }}
           letterSpacing={2}
           mt={{ xs: 6, md: 28, lg: 12 }}
         >
@@ -94,7 +117,7 @@ export default function Home() {
         <Typography
           variant="h6"
           textAlign={{ xs: "center", md: "start" }}
-          fontSize={{ xs: 12, md: 18, lg: 26 }}
+          fontSize={{ xs: 14, md: 28, lg: 30 }}
           letterSpacing={2}
           bgcolor={"var(---div-title-bg)"}
           p={2}
@@ -118,7 +141,12 @@ export default function Home() {
           <Typography
             variant="h4"
             textAlign={{ xs: "center", md: "left" }}
-            sx={{ fontFamily: "Gemstone", width: "100%" }}
+            sx={{
+              width: "100%",
+              fontSize: { xs: 26, md: 28, lg: 42 },
+              fontFamily: "Lato, sans-serif",
+              fontStyle: "italic",
+            }}
           >
             Some projects I've built
           </Typography>
@@ -133,11 +161,89 @@ export default function Home() {
           </Typography>
         </Box>
         <Grid item container xs={12} md={12} className="card">
+          <Typography
+            variant="h5"
+            sx={{
+              textAlign: "right",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              letterSpacing: 5,
+              color: "var(---div-title-bg)",
+              textShadow: "2px 2px 2px black",
+              fontSize: { xs: 26, md: 28, lg: 28 },
+              fontFamily: "Lato, sans-serif",
+              fontStyle: "italic",
+            }}
+          >
+            Web Development
+          </Typography>
           <Grid
             container
             id="media-scroller"
             className="card media-scroller snap-inline"
           >
+            <CardMediaProgram
+              ImageSrc={"/rsbc-marketing.PNG"}
+              title={"RSBC Marketing"}
+              altImage={"rsbc marketing"}
+              description={"Company website that help find more leads"}
+              link={"https://rsbc-marketing.vercel.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase", "Vercel"]}
+            />
+
+            <CardMediaProgram
+              ImageSrc={"/chords-finder-app.PNG"}
+              title={"Chords Finder App"}
+              altImage={"chords finder app"}
+              description={"Image chords organizer, to easy find chords"}
+              link={"https://music-ministry-chord-finder.web.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase"]}
+            />
+
+            <CardMediaProgram
+              ImageSrc={"/sales-agent-app.PNG"}
+              altImage={"Sales Agent App"}
+              title={"Sales Agent Application"}
+              description={"Agent App that can monitor their possible clients"}
+              link={"https://noems-agent-dummy.web.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase"]}
+            />
+
+            <CardMediaProgram
+              ImageSrc={"/Erha.png"}
+              altImage={"Research Paper Sample"}
+              title={"Research Paper"}
+              description={"Student projects/research that I built"}
+              link={"https://erha-3686e.web.app/"}
+              techUsedArray={["Next JS", "Material UI", "Firebase"]}
+            />
+          </Grid>
+
+          {/* Desktop */}
+          <Typography
+            variant="h5"
+            fontSize={36}
+            sx={{
+              textAlign: "right",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              letterSpacing: 5,
+              color: "var(---div-title-bg)",
+              textShadow: "2px 2px 2px black",
+              fontSize: { xs: 26, md: 28, lg: 28 },
+              fontFamily: "Lato, sans-serif",
+              fontStyle: "italic",
+              mt: { xs: 3, md: 6 },
+            }}
+          >
+            Desktop Software
+          </Typography>
+          <Grid
+            container
+            id="media-scroller"
+            className="card media-scroller snap-inline"
+          >
+            <Slider />
             <CardMediaProgram
               ImageSrc={"/rsbc-marketing.PNG"}
               title={"RSBC Marketing"}
@@ -190,7 +296,7 @@ export default function Home() {
       </Grid>
 
       {/* Info */}
-      <Grid container spacing={2} gap={2}>
+      <Grid container spacing={3} gap={3}>
         <Grid
           item
           xs={12}
@@ -207,7 +313,15 @@ export default function Home() {
           padding={2}
           my={{ xs: 10, md: 14 }}
         >
-          <Typography variant="h4" sx={{ fontFamily: "Gemstone" }}>
+          <Typography
+            variant="h4"
+            sx={{
+              fontSize: { xs: 36, md: 28, lg: 42 },
+              fontFamily: "Lato, sans-serif",
+              fontStyle: "italic",
+              mb: { xs: 3, md: 6 },
+            }}
+          >
             Technologies I'm using
           </Typography>
 
@@ -244,7 +358,9 @@ export default function Home() {
                     letterSpacing: 5,
                     color: "var(---div-title-bg)",
                     textShadow: "2px 2px 2px black",
-                    fontFamily: "Gemstone",
+                    fontSize: { xs: 26, md: 28, lg: 28 },
+                    fontFamily: "Lato, sans-serif",
+                    fontStyle: "italic",
                   }}
                 >
                   Web Development
@@ -256,44 +372,144 @@ export default function Home() {
                   alignItems={"center"}
                   justifyContent={"space-evenly"}
                 >
-                  <Image
-                    className="software-icons"
-                    src={"/html icon.png"}
-                    alt="html icon"
-                    width={100}
-                    height={100}
-                  />
-                  <Image
-                    className="software-icons"
-                    src={"/css3.png"}
-                    alt="css3"
-                    width={120}
-                    height={120}
-                  />
-                  <Image
-                    className="software-icons"
-                    src={"/javascript.png"}
-                    alt="js"
-                    width={120}
-                    height={120}
-                  />
-                  <Image
-                    className="software-icons"
-                    src={"/react.png"}
-                    alt="react js"
-                    width={100}
-                    height={100}
-                  />
-                  <Image
-                    className="software-icons"
-                    src={"/next-logo.svg"}
-                    alt="next js"
-                    width={120}
-                    height={120}
-                    style={{ marginLeft: 20 }}
-                  />
+                  <HtmlTooltip
+                    title={
+                      <>
+                        <Typography
+                          variant="body"
+                          color="inherit"
+                          fontWeight={"bold"}
+                        >
+                          HTML or HyperText Markup Language
+                        </Typography>
+                        <p>
+                          {
+                            " It defines the meaning and structure of web content. is the standard markup language for documents designed to be displayed in a web browser."
+                          }
+                        </p>
+                      </>
+                    }
+                  >
+                    <Image
+                      className="software-icons"
+                      src={"/html icon.png"}
+                      alt="html icon"
+                      width={100}
+                      height={100}
+                    />
+                  </HtmlTooltip>
+
+                  <HtmlTooltip
+                    title={
+                      <>
+                        <Typography
+                          variant="body"
+                          color="inherit"
+                          fontWeight={"bold"}
+                        >
+                          CSS or Cascading Style Sheets
+                        </Typography>
+                        <p>
+                          {
+                            "Is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML."
+                          }
+                        </p>
+                      </>
+                    }
+                  >
+                    <Image
+                      className="software-icons"
+                      src={"/css3.png"}
+                      alt="css3"
+                      width={120}
+                      height={120}
+                    />
+                  </HtmlTooltip>
+
+                  <HtmlTooltip
+                    title={
+                      <>
+                        <Typography
+                          variant="body"
+                          color="inherit"
+                          fontWeight={"bold"}
+                        >
+                          JavaScript
+                        </Typography>
+                        <p>
+                          {
+                            "Is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2023, 98.7% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries."
+                          }
+                        </p>
+                      </>
+                    }
+                  >
+                    <Image
+                      className="software-icons"
+                      src={"/javascript.png"}
+                      alt="js"
+                      width={120}
+                      height={120}
+                    />
+                  </HtmlTooltip>
+
+                  <HtmlTooltip
+                    title={
+                      <>
+                        <Typography
+                          variant="body"
+                          color="inherit"
+                          fontWeight={"bold"}
+                        >
+                          React JS
+                        </Typography>
+                        <p>
+                          {
+                            "Is a free and open-source front-end JavaScript library for building user interfaces based on components. It is maintained by Meta and a community of individual developers and companies."
+                          }
+                        </p>
+                      </>
+                    }
+                  >
+                    <Image
+                      className="software-icons"
+                      src={"/react.png"}
+                      alt="react js"
+                      width={100}
+                      height={100}
+                    />
+                  </HtmlTooltip>
+
+                  <HtmlTooltip
+                    title={
+                      <>
+                        <Typography
+                          variant="body"
+                          color="inherit"
+                          fontWeight={"bold"}
+                        >
+                          Next JS
+                        </Typography>
+                        <p>
+                          {
+                            "Is a React framework that gives you building blocks to create web applications. By framework, we mean Next.js handles the tooling and configuration needed for React, and provides additional structure, features, and optimizations for your application."
+                          }
+                        </p>
+                      </>
+                    }
+                  >
+                    <Image
+                      className="software-icons"
+                      src={"/next-logo.svg"}
+                      alt="next js"
+                      width={120}
+                      height={120}
+                      style={{ marginLeft: 20 }}
+                    />
+                  </HtmlTooltip>
                 </Grid>
               </li>
+
               <li>
                 <Typography
                   variant="h5"
@@ -305,9 +521,11 @@ export default function Home() {
                     letterSpacing: 5,
                     color: "var(---div-title-bg)",
                     textShadow: "2px 2px 2px black",
-                    fontFamily: "Gemstone",
+                    fontSize: { xs: 26, md: 28, lg: 28 },
+                    fontFamily: "Lato, sans-serif",
+                    fontStyle: "italic",
+                    mt: { xs: 3, md: 6 },
                   }}
-                  fontSize={36}
                 >
                   Desktop Applications
                 </Typography>
@@ -318,27 +536,86 @@ export default function Home() {
                   alignItems={"center"}
                   justifyContent={"space-evenly"}
                 >
-                  <Image
-                    className="software-icons"
-                    src={"/electron-js.png"}
-                    alt="electronJs"
-                    width={100}
-                    height={100}
-                  />
-                  <Image
-                    className="software-icons"
-                    src={"/python.png"}
-                    alt="python"
-                    width={120}
-                    height={120}
-                  />
-                  <Image
-                    className="software-icons"
-                    src={"/qt.png"}
-                    alt="pyqt"
-                    width={120}
-                    height={120}
-                  />
+                  <HtmlTooltip
+                    title={
+                      <>
+                        <Typography
+                          variant="body"
+                          color="inherit"
+                          fontWeight={"bold"}
+                        >
+                          Electron JS
+                        </Typography>
+                        <p>
+                          {
+                            "Is a free and open-source software framework developed and maintained by OpenJS Foundation. The framework is designed to create desktop applications using web technologies that are rendered using a version of the Chromium browser engine and a back end using the Node.js runtime environment."
+                          }
+                        </p>
+                      </>
+                    }
+                  >
+                    <Image
+                      className="software-icons"
+                      src={"/electron-js.png"}
+                      alt="electronJs"
+                      width={100}
+                      height={100}
+                    />
+                  </HtmlTooltip>
+
+                  <HtmlTooltip
+                    title={
+                      <>
+                        <Typography
+                          variant="body"
+                          color="inherit"
+                          fontWeight={"bold"}
+                        >
+                          Python
+                        </Typography>
+                        <p>
+                          {
+                            "Is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation. Python is dynamically typed and garbage-collected. It supports multiple programming paradigms, including structured, object-oriented and functional programming."
+                          }
+                        </p>
+                      </>
+                    }
+                  >
+                    <Image
+                      className="software-icons"
+                      src={"/python.png"}
+                      alt="python"
+                      width={120}
+                      height={120}
+                    />
+                  </HtmlTooltip>
+
+                  <HtmlTooltip
+                    title={
+                      <>
+                        <Typography
+                          variant="body"
+                          color="inherit"
+                          fontWeight={"bold"}
+                        >
+                          PyQt
+                        </Typography>
+                        <p>
+                          {
+                            "Is a GUI widgets toolkit. It is a Python interface for Qt, one of the most powerful, and popular cross-platform GUI library. PyQt is a blend of Python programming language and the Qt library. This introductory tutorial will assist you in creating graphical applications with the help of PyQt."
+                          }
+                        </p>
+                      </>
+                    }
+                  >
+                    <Image
+                      className="software-icons"
+                      src={"/pyqt.png"}
+                      alt="pyqt"
+                      width={120}
+                      height={120}
+                    />
+                  </HtmlTooltip>
                 </Grid>
               </li>
             </ul>
@@ -349,7 +626,7 @@ export default function Home() {
       </Grid>
 
       {/* Services */}
-      <Box id="services" className="card" spacing={1} mt={{ xs: 2, md: 3 }}>
+      {/* <Box id="services" className="card" spacing={1} mt={{ xs: 2, md: 3 }}>
         <Card sx={{ p: 2 }}>
           <Typography
             variant="h5"
@@ -359,8 +636,6 @@ export default function Home() {
             Services
           </Typography>
 
-          {/* Developer Services
-          <Typography>Software</Typography> */}
           <Grid container spacing={1}>
             <Grid item xs={12} md={4}>
               <Paper sx={{ background: "var(---div-title-bg)", p: 1 }}>
@@ -407,7 +682,7 @@ export default function Home() {
             </Grid>
           </Grid>
         </Card>
-      </Box>
+      </Box> */}
 
       {/* Contact */}
       <Box id="contact" className="card" marginY={5}>

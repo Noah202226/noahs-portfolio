@@ -55,7 +55,14 @@ const Contact = () => {
         padding: "1rem",
       }}
     >
-      <Typography variant="h6" sx={{ fontFamily: "Gemstone" }}>
+      <Typography
+        variant="h6"
+        sx={{
+          fontSize: { xs: 26, md: 28, lg: 28 },
+          fontFamily: "Lato, sans-serif",
+          fontStyle: "italic",
+        }}
+      >
         Send me a message:
       </Typography>
 
@@ -103,7 +110,9 @@ const Contact = () => {
               sx={{
                 padding: 1,
                 width: { xs: "100%", md: "200px" },
-                fontFamily: "Gemstone",
+                fontSize: { xs: 21, md: 28, lg: 28 },
+                fontFamily: "Lato, sans-serif",
+                fontStyle: "italic",
               }}
             >
               {isSending ? "Sending ..." : "Submit"}

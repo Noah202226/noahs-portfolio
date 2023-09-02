@@ -16,6 +16,7 @@ body {
   background-image: url("../public/page-turner.svg");
   background-color: #00bcd4;
   color: black;
+  font-family: "Lato", sans-serif !important;
 }
 /* Customize Scrollbar */
 body::-webkit-scrollbar {
@@ -253,4 +254,8 @@ em {
   top: -0.1rem !important;
   position: relative !important;
   text-decoration: none;
+}
+
+.software-icons {
+  cursor: alias;
 }
