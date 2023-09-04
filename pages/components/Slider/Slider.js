@@ -56,6 +56,8 @@ const Slider = ({
               style={{ objectFit: "fill" }}
               src={obj.img}
               alt={obj.caption}
+              width={100}
+              height={100}
             />
           </div>
         );
