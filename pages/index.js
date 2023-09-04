@@ -21,12 +21,12 @@ import Slider from "./components/Slider/Slider";
 import Contact from "./components/Contact";
 
 // Importing images
-import dentalImage1 from "../public/1.PNG";
+// import dentalImage1 from "../public/1.PNG";
 
 const dentalImages = [
   {
     caption: "Homepage",
-    img: dentalImage1,
+    img: "/1.PNG",
     id: 1,
   },
   {
