@@ -62,7 +62,7 @@ export default function CardMediaProgram({
       </CardContent>
       <CardActions>
         <Grid container mx={2}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} md={12}>
             <Typography gutterBottom variant="h6" component="div">
               Technology I used
             </Typography>

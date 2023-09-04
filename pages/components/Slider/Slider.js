@@ -1,32 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-// Images
-import cfHeartsday from "../../assets/cf/cf-heartsday-promo.jpg";
-import cfMenu from "../../assets/cf/cf-menu.jpg";
-import cfMilkyHalo from "../../assets/cf/cf-milky halohalo.jpg";
-
 import Image from "next/image";
 import BtnSlider from "./BtnSlider";
+import { Card, Typography } from "@mui/material";
 
-const images = [
-  {
-    caption: "Caffeina Menu",
-    img: cfMenu,
-    id: 1,
-  },
-  {
-    caption: "Caffeina Heartsday Promo",
-    img: cfHeartsday,
-    id: 2,
-  },
-  {
-    caption: "Caffeina Halo halo",
-    img: cfMilkyHalo,
-    id: 3,
-  },
-];
-
-const Slider = ({ autoSlide = false, autoSlideInterval = 3000 }) => {
+const Slider = ({
+  autoSlide = true,
+  autoSlideInterval = 3000,
+  images,
+  appTitle,
+  appDescription,
+}) => {
   const [slideIndex, setSlideIndex] = useState(1);
 
   const nextSlide = () => {
@@ -56,13 +40,23 @@ const Slider = ({ autoSlide = false, autoSlideInterval = 3000 }) => {
 
   return (
     <div className="container-slider">
-      {images.map((obj, index) => {
+      <div className="slider-card">
+        <Typography variant="h6" textAlign={"right"}>
+          {appTitle}
+        </Typography>
+        <Typography>{appDescription}</Typography>
+      </div>
+      {images?.map((obj, index) => {
         return (
           <div
             key={obj.id}
             className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
           >
-            <Image src={obj.img} alt={obj.caption} />
+            <Image
+              style={{ objectFit: "fill" }}
+              src={obj.img}
+              alt={obj.caption}
+            />
           </div>
         );
       })}
@@ -70,7 +64,7 @@ const Slider = ({ autoSlide = false, autoSlideInterval = 3000 }) => {
       <BtnSlider moveSlide={prevSlide} direction="prev" />
 
       <div className="dots-container">
-        {Array.from({ length: images.length }).map((item, index) => (
+        {Array.from({ length: images?.length }).map((item, index) => (
           <div
             key={index}
             onClick={() => moveDot(index + 1)}
