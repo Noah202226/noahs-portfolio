@@ -36,12 +36,12 @@ const dentalImages = [
   },
   {
     caption: "Export to excel",
-    img: "/3.png",
+    img: "/3.PNG",
     id: 3,
   },
   {
     caption: "Dynamic services",
-    img: "/4.png",
+    img: "/4.PNG",
     id: 4,
   },
 ];
