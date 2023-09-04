@@ -59,7 +59,7 @@ em {
 }
 
 .developer {
-  background-image: url("/florid-software-developer.gif");
+  /* background-image: url("/florid-software-developer.gif"); */
   background-size: contain;
   object-fit: contain;
   background-position: right; /* Center the image */

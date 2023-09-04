@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Box,
@@ -19,6 +19,7 @@ import CardMediaProgram from "./components/CardMediaProgram/CardMediaProgram";
 import Image from "next/image";
 import Slider from "./components/Slider/Slider";
 import Contact from "./components/Contact";
+import Typer from "./components/TypingText/Typer";
 
 // Importing images
 // import dentalImage1 from "../public/1.PNG";
@@ -47,6 +48,7 @@ const dentalImages = [
 ];
 
 export default function Home() {
+  const [text2, setText2] = useState(false);
   useEffect(() => {
     const resources = document.querySelectorAll("img");
     resources.forEach((res) => {
@@ -59,7 +61,6 @@ export default function Home() {
       (entries) => {
         entries.forEach((entry) => {
           entry.target.classList.toggle("show", entry.isIntersecting);
-          // if (entry.isIntersecting) observer.unobserve(entry.target);
         });
       },
       {
@@ -69,6 +70,15 @@ export default function Home() {
 
     cards.forEach((card) => {
       observer.observe(card);
+      if (card.classList.contains("show")) {
+        console.log("card has contain show", card);
+      }
+    });
+
+    cards.forEach((card) => {
+      if (card.classList.contains("show")) {
+        console.log("card has contain show", card);
+      }
     });
   }, []);
 
@@ -93,41 +103,48 @@ export default function Home() {
         marginBottom={3}
         display={"flex"}
         alignItems={"center"}
-        justifyContent={"space-around"}
+        justifyContent="space-around"
         sx={{
           height: { xs: "100vh", lg: "100vh" },
         }}
       >
-        <Box>
-          <Typography
-            variant="h1"
-            textAlign={{ xs: "center", md: "start" }}
-            fontSize={{ xs: 26, md: 76, lg: 106 }}
-            marginY={{ xs: 2, md: 2 }}
-            letterSpacing={5}
-            sx={{ transition: ".5s ease" }}
-          >
-            NOA LIGPITAN
-          </Typography>
+        <Box
+          display={"flex"}
+          flexDirection={"column"}
+          height={"70%"}
+          justifyContent={{ xs: "space-evenly" }}
+        >
+          <Box>
+            <Typography
+              variant="h1"
+              textAlign={{ xs: "center", md: "center" }}
+              fontSize={{ xs: 42, md: 76, lg: 106 }}
+              marginY={{ xs: 2, md: 2 }}
+              letterSpacing={5}
+              sx={{ transition: ".5s ease" }}
+            >
+              {<Typer textToType={"NOA LIGPITAN"} speed={100} />}
+            </Typography>
 
-          <Typography
-            variant="h3"
-            textAlign={{ xs: "center", md: "start" }}
-            fontSize={{ xs: 16, md: 24, lg: 26 }}
-            letterSpacing={5}
-            sx={{
-              transition: ".5s ease",
-              fontStyle: "italic",
-              color: "black",
-              letterSpacing: ".5rem",
-            }}
-          >
-            Software Developer
-          </Typography>
+            <Typography
+              variant="h3"
+              textAlign={{ xs: "center", md: "center" }}
+              fontSize={{ xs: 16, md: 24, lg: 26 }}
+              letterSpacing={5}
+              sx={{
+                transition: ".5s ease",
+                fontStyle: "italic",
+                color: "black",
+                letterSpacing: ".5rem",
+              }}
+            >
+              {<Typer textToType={"Software Developer"} speed={50} />}
+            </Typography>
+          </Box>
 
           <Typography
             variant="h6"
-            textAlign={{ xs: "center", md: "start" }}
+            textAlign={{ xs: "center", md: "center" }}
             fontSize={{ xs: 21, md: 28, lg: 30 }}
             letterSpacing={2}
             mt={{ xs: 6, md: 28, lg: 12 }}
@@ -141,7 +158,7 @@ export default function Home() {
 
           <Typography
             variant="h6"
-            textAlign={{ xs: "center", md: "start" }}
+            textAlign={{ xs: "center", md: "center" }}
             fontSize={{ xs: 14, md: 28, lg: 30 }}
             letterSpacing={2}
             bgcolor={"var(---div-title-bg)"}
@@ -149,9 +166,10 @@ export default function Home() {
             borderRadius={5}
             marginY={{ xs: 2, md: 2 }}
           >
-            Aims to help startup to{" "}
-            <em className="font-highlighted"> build application</em> to manage
-            their business
+            <Typer
+              textToType={`Aims to help startup to build application to manage their business`}
+              speed={20}
+            />
           </Typography>
         </Box>
 
@@ -748,7 +766,7 @@ export default function Home() {
             className="card media-scroller snap-inline"
           >
             <Slider images={dentalImages} appTitle={"Dental Clinic System"} />
-            <Slider images={dentalImages} appTitle={"Dental Clinic System"} />
+            {/* <Slider images={dentalImages} appTitle={"Dental Clinic System"} /> */}
           </Grid>
         </Grid>
 

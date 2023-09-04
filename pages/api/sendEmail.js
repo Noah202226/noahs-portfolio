@@ -29,9 +29,9 @@ export default async function handler(req, res) {
   // Create the email
   const mailOptions = {
     from: "noaligpitan@email.com",
-    to: mailList,
-    subject: "Subject of the Email",
-    text: `Hello ${name},\n\n${message}`,
+    to: email,
+    subject: `Subject of the ${email}`,
+    text: `Message from ${name},\n\n Message: ${message}`,
   };
 
   // Send the email

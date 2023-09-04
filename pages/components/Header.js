@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { Link } from "react-scroll";
 
-import { AppBar } from "@mui/material";
+import { AppBar, Tooltip } from "@mui/material";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -17,10 +17,11 @@ import { Facebook, HomeMax, MilitaryTech, YouTube } from "@mui/icons-material";
 import Image from "next/image";
 
 const pages = [
-  { name: "Services", path: "/services", id: 1, target: "services" },
+  // { name: "Services", path: "/services", id: 1, target: "services" },
   // { name: "Pricing", path: "/pricing", id: 2, target: "pricing" },
   { name: "Projects", path: "/services", id: 3, target: "projects" },
   { name: "Contact", path: "/contact", id: 4, target: "contact" },
+
   // { name: "Blog", path: "/blog", id: 5, target: "contact" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -153,6 +154,7 @@ export default function Header() {
                   duration={400}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", fontFamily: "Lato, sans-serif" }}
+                  download={true}
                 >
                   {page.name}
                 </Link>
@@ -166,18 +168,34 @@ export default function Header() {
               justifyContent: "flex-end",
             }}
           >
-            <IconButton
-              href="https://www.facebook.com/noaligpitan26"
-              target="_blank"
-            >
-              <Facebook color="red" />
-            </IconButton>
-            <IconButton
-              href="https://www.youtube.com/channel/UCY7RgjrnESF5AxgjF2PLyRw"
-              target="_blank"
-            >
-              <YouTube />
-            </IconButton>
+            <Tooltip title="Download CV" arrow>
+              <IconButton href="/Noah-Update-CV.pdf" target="_blank" download>
+                <Image
+                  src={"/download-resume.png"}
+                  alt="download resume"
+                  width={20}
+                  height={20}
+                />
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="Facebook" arrow>
+              <IconButton
+                href="https://www.facebook.com/noaligpitan26"
+                target="_blank"
+              >
+                <Facebook color="red" />
+              </IconButton>
+            </Tooltip>
+
+            <Tooltip title="Youtube" arrow>
+              <IconButton
+                href="https://www.youtube.com/channel/UCY7RgjrnESF5AxgjF2PLyRw"
+                target="_blank"
+              >
+                <YouTube />
+              </IconButton>
+            </Tooltip>
           </Box>
         </Toolbar>
       </Container>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import BtnSlider from "./BtnSlider";
 import { Card, Typography } from "@mui/material";
+import Link from "next/link";
 
 const Slider = ({
   autoSlide = true,
@@ -52,13 +53,15 @@ const Slider = ({
             key={obj.id}
             className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
           >
-            <Image
-              style={{ objectFit: "fill" }}
-              src={obj.img}
-              alt={obj.caption}
-              width={100}
-              height={100}
-            />
+            <Link href={obj.img} target="_blank">
+              <Image
+                style={{ objectFit: "fill" }}
+                src={obj.img}
+                alt={obj.caption}
+                width={100}
+                height={100}
+              />
+            </Link>
           </div>
         );
       })}
