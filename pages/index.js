@@ -54,23 +54,23 @@ const images = [
 const dentalImages = [
   {
     caption: "Homepage",
-    img: dentalImage1,
+    img: "/1.png",
     id: 1,
   },
   {
     caption: "Transactions report",
-    img: dentalImage2,
+    img: "/2.png",
     id: 2,
   },
   {
     caption: "Export to excel",
-    img: dentalImage3,
+    img: "/3.png",
     id: 3,
   },
   {
     caption: "Dynamic services",
-    img: dentalImage4,
-    id: 3,
+    img: "/4.png",
+    id: 4,
   },
 ];
 
