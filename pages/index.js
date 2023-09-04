@@ -20,40 +20,18 @@ import Image from "next/image";
 import Slider from "./components/Slider/Slider";
 import Contact from "./components/Contact";
 
-// import importedImg from "/chords-finder-app.PNG";
-
-// Images
-import cfHeartsday from "./assets/cf/cf-heartsday-promo.jpg";
-import cfMenu from "./assets/cf/cf-menu.jpg";
-import cfMilkyHalo from "./assets/cf/cf-milky halohalo.jpg";
-
-const images = [
-  {
-    caption: "Caffeina Menu",
-    img: cfMenu,
-    id: 1,
-  },
-  {
-    caption: "Caffeina Heartsday Promo",
-    img: cfHeartsday,
-    id: 2,
-  },
-  {
-    caption: "Caffeina Halo halo",
-    img: cfMilkyHalo,
-    id: 3,
-  },
-];
+// Importing images
+import dentalImage1 from "../public/1.PNG";
 
 const dentalImages = [
   {
     caption: "Homepage",
-    img: "/1.png",
+    img: dentalImage1,
     id: 1,
   },
   {
     caption: "Transactions report",
-    img: "/2.png",
+    img: "/2.PNG",
     id: 2,
   },
   {
