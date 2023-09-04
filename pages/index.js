@@ -27,12 +27,6 @@ import cfHeartsday from "./assets/cf/cf-heartsday-promo.jpg";
 import cfMenu from "./assets/cf/cf-menu.jpg";
 import cfMilkyHalo from "./assets/cf/cf-milky halohalo.jpg";
 
-// Dental images
-import dentalImage1 from "./assets/dental images/1.png";
-import dentalImage2 from "./assets/dental images/2.png";
-import dentalImage3 from "./assets/dental images/3.png";
-import dentalImage4 from "./assets/dental images/4.png";
-
 const images = [
   {
     caption: "Caffeina Menu",
