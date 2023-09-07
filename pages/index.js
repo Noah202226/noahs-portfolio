@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 
-import {
-  Box,
-  Card,
-  Grid,
-  Paper,
-  Stack,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, Tooltip, Typography } from "@mui/material";
+import NavigationIcon from "@mui/icons-material/Navigation";
+import AddIcon from "@mui/icons-material/Add";
+import { Fab } from "@mui/material";
 import { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
+
 import { Code, DesignServices } from "@mui/icons-material";
 
 import { styled } from "@mui/material/styles";
@@ -20,6 +16,8 @@ import Image from "next/image";
 import Slider from "./components/Slider/Slider";
 import Contact from "./components/Contact";
 import Typer from "./components/TypingText/Typer";
+import Header from "./components/Header";
+import { Link } from "react-scroll";
 
 // Importing images
 // import dentalImage1 from "../public/1.PNG";
@@ -74,12 +72,25 @@ export default function Home() {
         console.log("card has contain show", card);
       }
     });
+  }, []);
 
-    cards.forEach((card) => {
-      if (card.classList.contains("show")) {
-        console.log("card has contain show", card);
+  const [showFab, setShowFab] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = (event) => {
+      console.log(window.scrollY);
+      if (window.scrollY >= 700) {
+        setShowFab(true);
+      } else {
+        setShowFab(false);
       }
-    });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const HtmlTooltip = styled(({ className, ...props }) => (
@@ -96,88 +107,24 @@ export default function Home() {
 
   return (
     <Box className="card-container" marginBottom={3}>
-      {/* Hero */}
-      <Stack
-        className="card"
-        id="hero"
-        marginBottom={3}
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent="space-around"
-        sx={{
-          height: { xs: "100vh", lg: "100vh" },
-        }}
-      >
-        <Box
-          display={"flex"}
-          flexDirection={"column"}
-          height={"70%"}
-          justifyContent={{ xs: "space-evenly" }}
-        >
-          <Box>
-            <Typography
-              variant="h1"
-              textAlign={{ xs: "center", md: "center" }}
-              fontSize={{ xs: 42, md: 76, lg: 106 }}
-              marginY={{ xs: 2, md: 2 }}
-              letterSpacing={5}
-              sx={{ transition: ".5s ease" }}
-            >
-              {<Typer textToType={"NOA LIGPITAN"} speed={100} />}
-            </Typography>
-
-            <Typography
-              variant="h3"
-              textAlign={{ xs: "center", md: "center" }}
-              fontSize={{ xs: 16, md: 24, lg: 26 }}
-              letterSpacing={5}
-              sx={{
-                transition: ".5s ease",
-                fontStyle: "italic",
-                color: "black",
-                letterSpacing: ".5rem",
-              }}
-            >
-              {<Typer textToType={"Software Developer"} speed={50} />}
-            </Typography>
-          </Box>
-
-          <Typography
-            variant="h6"
-            textAlign={{ xs: "center", md: "center" }}
-            fontSize={{ xs: 21, md: 28, lg: 30 }}
-            letterSpacing={2}
-            mt={{ xs: 6, md: 28, lg: 12 }}
+      {showFab && (
+        <Link href={"/"} to="hero" smooth={true} offset={-100} duration={400}>
+          <Fab
+            aria-label="add"
+            sx={{
+              position: "fixed",
+              bottom: "1rem",
+              right: "1rem",
+              color: "white",
+            }}
+            variant="extended"
+            color="primary"
           >
-            Hi there, Let's{" "}
-            <em className="font-highlighted" style={{ color: "white" }}>
-              Designs
-            </em>{" "}
-            and <em className="font-highlighted">Develop</em> your products.
-          </Typography>
-
-          <Typography
-            variant="h6"
-            textAlign={{ xs: "center", md: "center" }}
-            fontSize={{ xs: 14, md: 28, lg: 30 }}
-            letterSpacing={2}
-            bgcolor={"var(---div-title-bg)"}
-            p={2}
-            borderRadius={5}
-            marginY={{ xs: 2, md: 2 }}
-          >
-            <Typer
-              textToType={`Aims to help startup to build application to manage their business`}
-              speed={20}
-            />
-          </Typography>
-        </Box>
-
-        <section className="button-scroll-container">
-          <div className="button-scroll"></div>
-        </section>
-      </Stack>
-
+            Go to top
+            <NavigationIcon />
+          </Fab>
+        </Link>
+      )}
       {/* Info */}
       <Grid container spacing={3} gap={3}>
         <Grid

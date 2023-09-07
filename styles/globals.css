@@ -13,10 +13,11 @@
 body {
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url("../public/page-turner.svg");
-  background-color: #00bcd4;
+
+  background-color: var(---contact-bg);
   color: black;
   font-family: "Lato", sans-serif !important;
+  overflow-x: hidden;
 }
 /* Customize Scrollbar */
 body::-webkit-scrollbar {
@@ -39,6 +40,12 @@ body::-webkit-scrollbar-thumb:hover {
   background: #0b1f22;
 }
 
+#hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../public/page-turner.svg");
+}
+
 ul {
   list-style: none;
 }
@@ -55,7 +62,7 @@ em {
 .navbar {
   transition: all 0.5s ease-in !important;
   color: #555 !important;
-  background: var(---div-title-bg) !important;
+  background: var(---contact-bg) !important;
 }
 
 .developer {
