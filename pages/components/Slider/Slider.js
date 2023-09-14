@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Image from "next/image";
 import BtnSlider from "./BtnSlider";
-import { Card, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import Link from "next/link";
 
 const Slider = ({
@@ -15,18 +15,18 @@ const Slider = ({
   const [slideIndex, setSlideIndex] = useState(1);
 
   const nextSlide = () => {
-    if (slideIndex !== images.length) {
-      setSlideIndex(slideIndex + 1);
-    } else if (slideIndex === images.length) {
-      setSlideIndex(1);
+    let newIndex = slideIndex + 1;
+    if (newIndex > images.length) {
+      newIndex = 1; // Wrap around to the first slide if at the end
     }
+    setSlideIndex(newIndex);
   };
   const prevSlide = () => {
-    if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1);
-    } else if (slideIndex === 1) {
-      setSlideIndex(images.length);
+    let newIndex = slideIndex - 1;
+    if (newIndex < 1) {
+      newIndex = images.length; // Wrap around to the last slide if at the beginning
     }
+    setSlideIndex(newIndex);
   };
 
   const moveDot = (index) => {
@@ -48,26 +48,33 @@ const Slider = ({
         <Typography>{appDescription}</Typography>
       </div>
       {images?.map((obj, index) => {
+        // Calculate the image URL based on the slideIndex
+        console.log(index + 1);
+        console.log(obj.img);
+        const imageUrl = `/${index + 1}.PNG`; // Change this URL pattern as needed
+
         return (
-          <div
-            key={obj.id}
-            className={slideIndex === index + 1 ? "slide active-anim" : "slide"}
-          >
-            <Link href={obj.img} target="_blank">
+          <Link href={imageUrl} target="_blank">
+            <div
+              key={obj.id}
+              className={
+                slideIndex === index + 1 ? "slide active-anim" : "slide"
+              }
+            >
               <Image
                 style={{ objectFit: "fill" }}
-                src={obj.img}
+                src={imageUrl}
                 alt={obj.caption}
                 width={100}
                 height={100}
               />
-            </Link>
-          </div>
+            </div>
+          </Link>
         );
       })}
+
       <BtnSlider moveSlide={nextSlide} direction="next" />
       <BtnSlider moveSlide={prevSlide} direction="prev" />
-
       <div className="dots-container">
         {Array.from({ length: images?.length }).map((item, index) => (
           <div

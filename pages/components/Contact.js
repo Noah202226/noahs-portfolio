@@ -61,10 +61,17 @@ const Contact = () => {
           alignItems={"center"}
           justifyContent={"center"}
           height={"100%"}
-          p={{ xs: 2, md: 2 }}
+          p={{ xs: 2, md: 3 }}
         >
           <Image src={"/email.svg"} alt="image" width={150} height={150} />
-          <Typography variant="body" textAlign={"center"}>
+          <Typography
+            variant="body"
+            sx={{
+              textAlign: { xs: "center", md: "left" },
+              fontSize: { xs: 36, md: 28, lg: 30 },
+              my: { xs: 5, md: 0 },
+            }}
+          >
             If you have questions and want to get in touch, use the form. I will
             appreciate your message and will response as soon as possible. Thank
             you.
@@ -77,8 +84,10 @@ const Contact = () => {
           variant="h6"
           textAlign={"center"}
           sx={{
-            fontSize: { xs: 26, md: 28, lg: 28 },
+            textAlign: { xs: "center", md: "left" },
+            fontSize: { xs: 36, md: 28, lg: 46 },
             fontFamily: "Lato, sans-serif",
+            my: { xs: 0, md: 2 },
             // fontStyle: "italic",
           }}
         >
@@ -136,9 +145,10 @@ const Contact = () => {
                 sx={{
                   padding: 1,
                   width: { xs: "100%", md: "200px" },
-                  fontSize: { xs: 21, md: 28, lg: 16 },
+                  textAlign: { xs: "center", md: "left" },
+                  fontSize: { xs: 26, md: 28, lg: 30 },
                   fontFamily: "Lato, sans-serif",
-                  // fontStyle: "italic",
+                  fontWeight: { xs: "bold", md: "normal" },
                 }}
               >
                 {isSending ? "Sending ..." : "Submit"}

@@ -146,9 +146,9 @@ export default function Home() {
           <Typography
             variant="h4"
             sx={{
-              fontSize: { xs: 36, md: 28, lg: 42 },
+              textAlign: { xs: "center", md: "left" },
+              fontSize: { xs: 50, md: 28, lg: 42 },
               fontFamily: "Lato, sans-serif",
-              fontStyle: "italic",
               mb: { xs: 3, md: 6 },
             }}
           >
@@ -156,41 +156,17 @@ export default function Home() {
           </Typography>
 
           <Box marginBottom={2} display={"flex"} flexDirection={"column"}>
-            {/* <Box
-              display={"flex"}
-              flexDirection={"row"}
-              alignItems={"center"}
-              justifyContent={"center"}
-              sx={{
-                background: "var(---div-title-bg)",
-                padding: 1,
-                borderRadius: "1rem",
-                opacity: 0.8,
-                width: { xs: "100%", md: "60%" },
-              }}
-            >
-              <Typography
-                variant="h5"
-                fontSize={{ xs: 24, md: 36, lg: 46 }}
-                sx={{ textShadow: "2px 2px 2px grey", fontFamily: "Gemstone" }}
-              >
-                Technologies I'm using
-              </Typography>
-            </Box> */}
-
             <ul>
               <li>
                 <Typography
                   variant="h5"
-                  fontSize={36}
                   sx={{
-                    textAlign: "center",
                     letterSpacing: 5,
                     color: "var(---div-title-bg)",
                     textShadow: "2px 2px 2px black",
-                    fontSize: { xs: 26, md: 28, lg: 28 },
+                    textAlign: { xs: "left", md: "left" },
+                    fontSize: { xs: 48, md: 28, lg: 42 },
                     fontFamily: "Lato, sans-serif",
-                    fontStyle: "italic",
                   }}
                 >
                   Web Development
@@ -379,9 +355,9 @@ export default function Home() {
                     letterSpacing: 5,
                     color: "var(---div-title-bg)",
                     textShadow: "2px 2px 2px black",
-                    fontSize: { xs: 26, md: 28, lg: 28 },
+                    textAlign: { xs: "left", md: "left" },
+                    fontSize: { xs: 48, md: 28, lg: 42 },
                     fontFamily: "Lato, sans-serif",
-                    fontStyle: "italic",
                     mt: { xs: 3, md: 6 },
                   }}
                 >
@@ -488,9 +464,9 @@ export default function Home() {
                     letterSpacing: 5,
                     color: "var(---div-title-bg)",
                     textShadow: "2px 2px 2px black",
-                    fontSize: { xs: 26, md: 28, lg: 28 },
+                    textAlign: { xs: "left", md: "left" },
+                    fontSize: { xs: 48, md: 28, lg: 42 },
                     fontFamily: "Lato, sans-serif",
-                    fontStyle: "italic",
                     mt: { xs: 3, md: 6 },
                   }}
                 >
@@ -605,7 +581,7 @@ export default function Home() {
             textAlign={{ xs: "center", md: "left" }}
             sx={{
               width: "100%",
-              fontSize: { xs: 48, md: 28, lg: 42 },
+              fontSize: { xs: 50, md: 28, lg: 42 },
               fontFamily: "Lato, sans-serif",
               // fontStyle: "italic",
             }}
@@ -637,9 +613,9 @@ export default function Home() {
               letterSpacing: 5,
               color: "var(---div-title-bg)",
               textShadow: "2px 2px 2px black",
-              fontSize: { xs: 36, md: 28, lg: 28 },
+              textAlign: { xs: "left", md: "left" },
+              fontSize: { xs: 48, md: 28, lg: 42 },
               fontFamily: "Lato, sans-serif",
-              fontStyle: "italic",
             }}
           >
             Web Development
@@ -709,9 +685,9 @@ export default function Home() {
                 letterSpacing: 5,
                 color: "var(---div-title-bg)",
                 textShadow: "2px 2px 2px black",
-                fontSize: { xs: 26, md: 28, lg: 28 },
                 fontFamily: "Lato, sans-serif",
-                fontStyle: "italic",
+                textAlign: { xs: "left", md: "left" },
+                fontSize: { xs: 48, md: 28, lg: 42 },
                 mt: { xs: 3, md: 6 },
               }}
             >
@@ -726,7 +702,10 @@ export default function Home() {
               // bgcolor={"coral"}
               p={1}
               borderRadius={3}
-              textAlign={"center"}
+              sx={{
+                textAlign: { xs: "left", md: "left" },
+                fontSize: { xs: 18, md: 16 },
+              }}
             >
               Click the image to view it in full width
             </Typography>
