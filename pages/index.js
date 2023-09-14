@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Box, Grid, Tooltip, Typography } from "@mui/material";
+import { Box, Grid, Stack, Tooltip, Typography } from "@mui/material";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import AddIcon from "@mui/icons-material/Add";
 import { Fab } from "@mui/material";
@@ -605,9 +605,9 @@ export default function Home() {
             textAlign={{ xs: "center", md: "left" }}
             sx={{
               width: "100%",
-              fontSize: { xs: 26, md: 28, lg: 42 },
+              fontSize: { xs: 48, md: 28, lg: 42 },
               fontFamily: "Lato, sans-serif",
-              fontStyle: "italic",
+              // fontStyle: "italic",
             }}
           >
             Some projects I've built
@@ -616,10 +616,14 @@ export default function Home() {
           <Typography
             className="to-hide-in-mobile"
             variant="caption"
-            color={"coral"}
+            color={"white"}
             fontStyle={"italic"}
+            bgcolor={"coral"}
+            p={1}
+            borderRadius={3}
+            textAlign={"center"}
           >
-            Use shift + mouse scroll to view other projects
+            Use (shift +) mouse scroll to view other projects
           </Typography>
         </Box>
 
@@ -627,13 +631,13 @@ export default function Home() {
           <Typography
             variant="h5"
             sx={{
-              textAlign: "right",
+              textAlign: "left",
               justifyContent: "flex-end",
               alignItems: "flex-end",
               letterSpacing: 5,
               color: "var(---div-title-bg)",
               textShadow: "2px 2px 2px black",
-              fontSize: { xs: 26, md: 28, lg: 28 },
+              fontSize: { xs: 36, md: 28, lg: 28 },
               fontFamily: "Lato, sans-serif",
               fontStyle: "italic",
             }}
@@ -689,24 +693,44 @@ export default function Home() {
           </Grid>
 
           {/* Desktop */}
-          <Typography
-            variant="h5"
-            fontSize={36}
-            sx={{
-              textAlign: "right",
-              justifyContent: "flex-end",
-              alignItems: "flex-end",
-              letterSpacing: 5,
-              color: "var(---div-title-bg)",
-              textShadow: "2px 2px 2px black",
-              fontSize: { xs: 26, md: 28, lg: 28 },
-              fontFamily: "Lato, sans-serif",
-              fontStyle: "italic",
-              mt: { xs: 3, md: 6 },
-            }}
+          <Stack
+            flexDirection={{ xs: "column", md: "row" }}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+            width={"100%"}
           >
-            Desktop Software
-          </Typography>
+            <Typography
+              variant="h5"
+              fontSize={36}
+              sx={{
+                textAlign: "right",
+                justifyContent: "flex-end",
+                alignItems: "flex-end",
+                letterSpacing: 5,
+                color: "var(---div-title-bg)",
+                textShadow: "2px 2px 2px black",
+                fontSize: { xs: 26, md: 28, lg: 28 },
+                fontFamily: "Lato, sans-serif",
+                fontStyle: "italic",
+                mt: { xs: 3, md: 6 },
+              }}
+            >
+              Desktop Software
+            </Typography>
+
+            <Typography
+              // className="to-hide-in-mobile"
+              variant="caption"
+              color={"coral"}
+              fontStyle={"italic"}
+              // bgcolor={"coral"}
+              p={1}
+              borderRadius={3}
+              textAlign={"center"}
+            >
+              Click the image to view it in full width
+            </Typography>
+          </Stack>
           <Grid
             container
             id="media-scroller2"

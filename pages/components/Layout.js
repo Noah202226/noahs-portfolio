@@ -33,24 +33,28 @@ export default function Layout({ children }) {
             display={"flex"}
             flexDirection={"column"}
             height={"70%"}
+            alignItems={"center"}
             justifyContent={{ xs: "space-evenly" }}
           >
             <Box>
               <Typography
                 variant="h1"
-                textAlign={{ xs: "center", md: "center" }}
-                fontSize={{ xs: 42, md: 76, lg: 106 }}
+                textAlign={{ xs: "left", md: "center" }}
+                fontSize={{ xs: 70, md: 76, lg: 106 }}
                 marginY={{ xs: 2, md: 2 }}
+                marginLeft={{ xs: 2, md: 2 }}
                 letterSpacing={5}
                 sx={{ transition: ".5s ease" }}
               >
-                {<Typer textToType={"NOA LIGPITAN"} speed={100} />}
+                {<Typer textToType={"NOAH LIGPITAN"} speed={100} />}
               </Typography>
 
               <Typography
                 variant="h3"
-                textAlign={{ xs: "center", md: "center" }}
-                fontSize={{ xs: 16, md: 24, lg: 26 }}
+                textAlign={{ xs: "left", md: "center" }}
+                fontSize={{ xs: 26, md: 76, lg: 50 }}
+                marginY={{ xs: 0, md: 2 }}
+                marginLeft={{ xs: 2, md: 2 }}
                 letterSpacing={5}
                 sx={{
                   transition: ".5s ease",
@@ -65,8 +69,9 @@ export default function Layout({ children }) {
 
             <Typography
               variant="h6"
-              textAlign={{ xs: "center", md: "center" }}
-              fontSize={{ xs: 21, md: 28, lg: 30 }}
+              textAlign={{ xs: "left", md: "center" }}
+              fontSize={{ xs: 28, md: 28, lg: 30 }}
+              marginLeft={{ xs: 2, md: 2 }}
               letterSpacing={2}
               mt={{ xs: 6, md: 28, lg: 12 }}
             >
@@ -79,13 +84,14 @@ export default function Layout({ children }) {
 
             <Typography
               variant="h6"
-              textAlign={{ xs: "center", md: "center" }}
-              fontSize={{ xs: 14, md: 28, lg: 30 }}
+              textAlign={{ xs: "left", md: "center" }}
+              fontSize={{ xs: 22, md: 28, lg: 30 }}
               letterSpacing={2}
               bgcolor={"var(---div-title-bg)"}
               p={2}
               borderRadius={5}
               marginY={{ xs: 2, md: 2 }}
+              width={{ xs: "90%", md: "100%" }}
             >
               <Typer
                 textToType={`Aims to help startup to build application to manage their business`}
